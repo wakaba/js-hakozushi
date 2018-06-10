@@ -77,7 +77,7 @@ sub execute_test_html_file {
             };
           });
         }, [], timeout => 5000)->then (sub {
-          my $result = $_[0];
+          my $result = $_[0]->json;
           $all_tests_passed = $result->{value}->{allTestsPassed};
 
           my $fh = IO::File->new($test_result_file_path, ">:encoding(utf8)");
